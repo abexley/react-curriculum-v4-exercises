@@ -19,9 +19,8 @@ export default function BugEffectLoop() {
 
   return <p>Bug 1 Count: {count}</p>;
 }
-
 // Explanation:
 // The useEffect was missing a dependency array, so it ran after every render.
-// Beacuse it updated the state with setCount(), React rendered the component
-//again, causing the effect to run repeatedly. Adding an empty dependency array
-//makes the effect run only once when the compenentt first mounts.
+// Because it updated the state with setCount(), React rendered the component
+// again, causing the effect to run repeatedly. Adding an empty dependency array ([])
+// makes the effect run only once when the component first mounts.
