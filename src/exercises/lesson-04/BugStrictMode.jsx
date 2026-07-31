@@ -7,9 +7,13 @@ export default function BugStrictMode() {
   const [count, setCount] = useState(0);
 
   useEffect(() => {
-    setInterval(() => {
+    const intervalId = setInterval(() => {
       setCount((c) => c + 1);
     }, 1000);
+
+    return () => {
+      clearInterval(intervalId);
+    };
   }, []);
 
   return (
@@ -20,4 +24,8 @@ export default function BugStrictMode() {
   );
 }
 
-// Write your explanation of how StrictMode helps us catch this bug
+// Explanation:
+// StrictMode mounts and unmounts components twice in development to help
+// detect bugs. Without cleaning up the interval, multiple timers continue
+// running, causing the counter to increment twice. Returning clearInterval()
+// removes the old timer before a new one is created.
