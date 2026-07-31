@@ -6,7 +6,8 @@ export default function BugEventPropagation() {
     alert("RED BOX CLICKED ❌ Don't show me!");
   }
 
-  function handleInnerClick() {
+  function handleInnerClick(event) {
+    event.stopPropagation();
     alert('Button Clicked ✅');
   }
 
@@ -22,3 +23,8 @@ export default function BugEventPropagation() {
     </>
   );
 }
+
+// Explanation:
+// Events normally bubble from a child element to its parent.
+// Calling event.stopPropagation() prevents the click event from
+// reaching the parent, so only the button's click handler runs.

@@ -12,7 +12,12 @@ export default function Parent() {
     <div>
       <h2>Parent-Child Communication</h2>
       <p>Counter: {count}</p>
-      <Child />
+      <Child onIncrement={increment} />
     </div>
   );
 }
+
+// The Parent owns the counter state.
+// It passes the increment function to Child as a prop.
+// When the Child button is clicked, it calls the parent's function
+// to update the state.
