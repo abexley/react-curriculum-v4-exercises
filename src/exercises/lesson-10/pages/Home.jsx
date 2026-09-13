@@ -4,6 +4,7 @@ export default function Home({ products }) {
   return (
     <section>
       <h2>Home</h2>
+
       <p>
         Click a product to navigate to <code>/products/id</code>.
       </p>
@@ -41,6 +42,8 @@ export default function Home({ products }) {
             <p style={{ margin: 0 }}>
               <strong>${p.price.toFixed(2)}</strong>
             </p>
+
+            <Link to={`products/${p.id}`}>View Product</Link>
           </article>
         ))}
       </div>
